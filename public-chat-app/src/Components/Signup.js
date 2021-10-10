@@ -52,7 +52,6 @@ function Signup() {
         }
     };
 
-
     return (
         <div className="div-signup">
             <div className="text">

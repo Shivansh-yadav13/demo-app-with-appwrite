@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Signup from './Components/Signup';
 import Login from './Components/Login';
 import Home from './Components/Home';
-import { account } from './Services/appwriteConfig';
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/home" component={Home} />
         < Route path="/">
-        {account.get() ? <Redirect to="/home" /> : <Redirect to="/login" />}
+          <Redirect to="/login" />
         </ Route>
       </Switch>
     </Router>

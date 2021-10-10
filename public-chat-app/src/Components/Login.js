@@ -42,11 +42,22 @@ function Login() {
         event.preventDefault();
             await account.createSession(values.email, values.password);
         try {
-            history.push('/')
+            history.push('/home')
         } catch (event) {
             console.log(event.message);
         }
     };
+
+    const checkUser = async () => {
+        await account.get();
+        try {
+            history.push('/home')
+        } catch (event) {
+            console.log(event.message);
+        }
+    };
+
+    checkUser();
 
     return (
         <div className="div-signup">

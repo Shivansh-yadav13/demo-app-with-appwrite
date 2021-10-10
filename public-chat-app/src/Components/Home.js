@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { account } from '../Services/appwriteConfig'
 import Button from '@mui/material/Button';
 
@@ -7,15 +7,13 @@ import { useHistory, Link } from 'react-router-dom';
 function Home() {
     const history = useHistory();
     const [userInfo, setUserInfo] = useState();
-    useEffect(async () => {
-        try {
-            const userData = await account.get();
-            setUserInfo(userData);
-        } catch (event) {
-            console.log(event.message);
-            history.push('/login');
-        }
-    }, []);
+
+    const userData = account.get();
+    try {
+        setUserInfo(userData);
+    } catch (event) {
+        console.log(event.message);
+    }
 
     const logUserOut = async (event) => {
         event.preventDefault();
